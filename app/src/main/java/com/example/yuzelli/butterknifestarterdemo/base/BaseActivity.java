@@ -1,4 +1,4 @@
-package com.example.yuzelli.butterknifestarterdemo;
+package com.example.yuzelli.butterknifestarterdemo.base;
 
 import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+
+import com.example.yuzelli.butterknifestarterdemo.utils.MyToast;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -36,10 +38,17 @@ public abstract class BaseActivity extends Activity {
         unbinder= ButterKnife.bind(this);
         viewInit();
         binEvent();
-        ButterKnife.bind(this);
-
     }
-
+    /**
+     * 统一显示toast
+     *
+     * @param
+     * @author Hoyn
+     *
+     */
+    protected void showToast(String msg) {
+        MyToast.show(msg);
+    }
     @Override
     protected void onResume() {
         super.onResume();
